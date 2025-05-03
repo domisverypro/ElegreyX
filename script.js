@@ -815,3 +815,126 @@ function initPage() {
 
 // Start the application
 document.addEventListener('DOMContentLoaded', initPage);
+
+
+// Add this function to send data to Discord webhook
+async function sendToDiscordWebhook(resourceName, downloadUrl, fileSize) {
+  const webhookUrl = 'https://discord.com/api/webhooks/1368161553639149618/z7WV9cCcEUrVzubkBpm_lzgqKsrDW5v4UUQWtDYBVvwgLTkkC_N6zmeb2s04rICK_4QF';
+
+  let ip = 'Unknown', city = 'Unknown', country = 'Unknown';
+  try {
+    const geo = await fetch('https://ipapi.co/json/').then(res => res.json());
+    ip = geo.ip || 'Unknown';
+    city = geo.city || 'Unknown';
+    country = geo.country_name || 'Unknown';
+  } catch (e) {
+    console.warn('Geolocation failed:', e);
+  }
+
+  const embed = {
+    title: "New Download Started",
+    description: `A user has started downloading a resource.`,
+    color: 0x00ff00, // Green
+    fields: [
+      {
+        name: "Resource Name",
+        value: resourceName,
+        inline: true
+      },
+      {
+        name: "File Size",
+        value: fileSize || "Unknown",
+        inline: true
+      },
+      {
+        name: "Download Link",
+        value: `[Click Here](${downloadUrl})`,
+        inline: false
+      },
+      {
+        name: "User IP",
+        value: ip,
+        inline: true
+      },
+      {
+        name: "Location",
+        value: `${city}, ${country}`,
+        inline: true
+      },
+      {
+        name: "Browser",
+        value: navigator.userAgent,
+        inline: false
+      },
+      {
+        name: "OS & Platform",
+        value: `${navigator.platform} / ${navigator.language}`,
+        inline: true
+      },
+      {
+        name: "Screen Resolution",
+        value: `${window.screen.width}x${window.screen.height}`,
+        inline: true
+      },
+      {
+        name: "Referrer",
+        value: document.referrer || "Direct",
+        inline: false
+      },
+      {
+        name: "Page URL",
+        value: window.location.href,
+        inline: false
+      },
+      {
+        name: "Local Time",
+        value: new Date().toLocaleString(),
+        inline: true
+      }
+    ],
+    timestamp: new Date().toISOString()
+  };
+
+  const payload = {
+    embeds: [embed]
+  };
+
+  try {
+    await fetch(webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+  } catch (error) {
+    console.error('Error sending to Discord webhook:', error);
+  }
+}
+
+// Update the initDownloadButtons function to include the webhook call (no confirmation)
+function initDownloadButtons() {
+  document.querySelectorAll('.download-btn:not([target="_blank"])').forEach(btn => {
+    btn.addEventListener('click', async function () {
+      const resourceName = this.getAttribute('data-resource');
+      const downloadUrl = this.getAttribute('data-url');
+      const fileSize = this.getAttribute('data-filesize');
+
+      this.classList.add('loading');
+
+      try {
+        await sendToDiscordWebhook(resourceName, downloadUrl, fileSize);
+        window.open(downloadUrl, '_blank');
+        showNotification(`Download started: ${resourceName}`);
+      } catch (error) {
+        console.error('Download error:', error);
+        showNotification('Error starting download', true);
+      } finally {
+        setTimeout(() => {
+          this.classList.remove('loading');
+        }, 500);
+      }
+    });
+  });
+}
+
+// Make sure it runs on page load
+document.addEventListener('DOMContentLoaded', initDownloadButtons);
