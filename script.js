@@ -7,7 +7,7 @@ const pluginsData = [
     author: "Boris FX",
     description: "boris fx sapphire is a comprehensive collection of high-quality visual effects and transitions for after effects and premiere pro. featuring over 270 effects, it offers tools for everything from color grading to stylized looks, cinematic lighting effects, and advanced transitions. with cutting-edge technology like advanced noise reduction, glows, and lens flares, it’s ideal for professional film and television production, delivering top-tier creative control.",
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0379APSSMJ7CtwjSIfcm_toQ0v9kH3mkdwo3y34GdzEekpT2phmwosI4xNLMH2Nt3akA&usqp=CAU",
-    tags: ["VFX"],
+    tags: ["VFX", "3d", "Effects"],
     platform: "windows",
     category: "VFX",
     downloadLinks: {
@@ -23,7 +23,7 @@ const pluginsData = [
     author: "crossphere",
     description: "crossphere bokeh is a professional-grade after effects plugin designed to simulate realistic lens bokeh and depth-of-field effects. it offers customizable aperture shapes, focus distance controls, and light reaction settings, making it perfect for creating cinematic visuals, dreamy highlights, or realistic camera blur in post-production.",
     image: "https://aescripts.com/media/catalog/product/cache/1/aes_image_square/9df78eab33525d08d6e5fb8d27136e95/c/r/crossphere-bokeh_2_sq.jpg",
-    tags: ["bokeh", "lens", "blur", "light", "cinematic", "depth of field",],
+    tags: ["bokeh", "lens", "blur", "Effects", "cinematic", "depth of field",],
     platform: "windows",
     category: " effects, lens & blur",
     downloadLinks: {
@@ -39,7 +39,7 @@ const pluginsData = [
     author: "aescripts",
     description: "datamosh v1.1.5 is a creative after effects plugin designed to simulate the popular datamoshing effect, which involves manipulating video frames to create glitchy, distorted visuals. ideal for music videos, experimental art, and motion graphics, it allows users to control the frame data, creating smooth transitions between frames or corrupting them for dramatic glitch effects. it's perfect for adding an edgy, digital aesthetic to any project.",
     image: "https://aescripts.com/media/catalog/product/cache/1/aes_image_square/9df78eab33525d08d6e5fb8d27136e95/d/a/datamosh2-sq.png",
-    tags: ["glitch", "distortion", "datamoshing", "video effects", "glitch art", "corruption"],
+    tags: ["glitch", "distortion", "datamoshing", "effects", "glitch art", "corruption"],
     platform: "windows",
     category: "distortion, glitch art, video effects",
     downloadLinks: {
@@ -55,7 +55,7 @@ const pluginsData = [
     author: "forbidden planet",
     description: "deep glow is an after effects plugin that adds natural-looking, high-quality glow effects to your footage. it simulates the appearance of glowing objects in a scene while maintaining the crispness and sharpness of the original shot.",
     image: "https://riztagar.com/wp-content/uploads/2024/02/Deep-glow.webp",
-    tags: ["glow", "visual effects", "lighting"],
+    tags: ["glow", "effects", "lighting"],
     platform: "windows",
     category: "lighting, effects",
     downloadLinks: {
@@ -71,7 +71,7 @@ const pluginsData = [
     author: "videocopilot",
     description: "element 3d is a fast, GPU-accelerated 3d object-based plugin for after effects. it enables users to import, animate, and render 3d models directly in after effects, offering seamless integration with the rest of the effects.",
     image: "https://i0.wp.com/www.aufieroinformatica.com/wp-content/uploads/sites/7/2021/02/zzzzz.jpg?fit=720%2C479&ssl=1",
-    tags: ["3d", "animation", "modeling", "rendering"],
+    tags: ["3D", "animation", "modeling", "rendering"],
     platform: "windows",
     category: "3d, rendering",
     downloadLinks: {
@@ -87,7 +87,7 @@ const pluginsData = [
     "author": "aescripts",
     "description": "ez tools is a collection of practical utilities designed to streamline after effects workflow, offering a suite of time-saving features like customizable shortcuts, keyframe tools, and layer utilities.",
     "image": "https://i.pinimg.com/736x/36/7c/02/367c026d4f7f7b307e2b668816875a44.jpg",
-    "tags": ["utilities", "workflow", "shortcuts"],
+    "tags": ["utilities", "Utility", "shortcuts"],
     "platform": "windows",
     "category": "workflow, utilities",
     "downloadLinks": {
